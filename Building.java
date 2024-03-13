@@ -1,3 +1,10 @@
+/**
+File: Building.java
+Author: Yuyao Zhu
+Date: 2024 - 3 - 13
+Description: Set the class Building which is the superclass in this program */
+
+
 public class Building {
 
     protected String name = "<Name Unknown>";

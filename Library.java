@@ -1,6 +1,13 @@
+/**
+File: Library.java
+Author: Yuyao Zhu
+Date: 2024-3-13
+Description: Construct the class Library that extends from the class Building */
+
 /* This is a stub for the Library class */
 import java.util.Hashtable;
 import java.util.Map;
+
 public class Library extends Building{
   private Hashtable<String, Boolean> collection;
   //Constructor of the class library
@@ -9,7 +16,7 @@ public class Library extends Building{
       this.collection = collection;
       System.out.println("You have built a library: 📖");
     }
-    /*Add one title to the collections of library
+    /**Add one title to the collections of library
      * @param title: the book added to the collection
      */
     public void addTitle(String title){
@@ -19,7 +26,7 @@ public class Library extends Building{
         else{
           throw new RuntimeException("Sorry, the book already existed in the library");}
         }
-    /* Remove one book from the collection of library
+    /** Remove one book from the collection of library
      * @param title: the title that needs to be removed
      * @return the book that is removed from the collection 
      */
@@ -31,7 +38,7 @@ public class Library extends Building{
       else{
       throw new RuntimeException("Sorry, the book you are searching for is not found.");}
     }
-    /* Change the status of a book since it is checked out
+    /** Change the status of a book since it is checked out
      * @param title: the title of the book that is checked out
      */
     public void checkOut(String title){
@@ -43,7 +50,7 @@ public class Library extends Building{
       }else{
       throw new RuntimeException("Sorry, the book you are looking for is not found in this library");}
     }
-    /* Change the status of the book from false to true since it is returned
+    /** Change the status of the book from false to true since it is returned
      * @param title: the title of the book that is returned.
      */
     public void returnBook(String title){
@@ -55,7 +62,7 @@ public class Library extends Building{
       }else{
       throw new RuntimeException("Sorry, the book you are looking for is not found in this library");}
     }
-  /* Check  whether a book is in the collection of the library
+  /** Check  whether a book is in the collection of the library
    * @param title: title of the book that is checked
    * @return whether the book is in the collection of the library
    */
@@ -65,13 +72,18 @@ public class Library extends Building{
     }
     return false;
   }
-  /*Check whether a book is checked out in the collection of the library
+  /**Check whether a book is checked out in the collection of the library
    * @param title: title of book that is checked out 
    * @return whether the book is checked out or not
    */
   public boolean isAvailable(String title){
-    return collection.get(title);
+  if (collection.containsKey(title)){  
+    return collection.get(title);}
+  else{
+    throw new RuntimeException("Sorry, we don't have this book at" + name);
   }
+  }
+  
   /*Prints out all the items in the collection of the library in a ways that can be easily read*/
   public void printCollection(){
   if (collection.size() > 0){

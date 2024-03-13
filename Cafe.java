@@ -1,3 +1,9 @@
+/**
+File: Cafe.java
+Author: Yuyao Zhu
+Date: 2024 - 3 - 13
+Description: Construct the class Cafe that extends from class Building.*/
+
 /* This is a stub for the Cafe class */
 class Cafe extends Building  {
     private int nCoffeeOunces; // The number of ounces of coffee remaining in inventory
@@ -31,7 +37,7 @@ class Cafe extends Building  {
         return nCups;
     }
     /** 
-    *Personalize and sell coffee
+    *Personalize and sell coffee and restock if needed
      * @param size: integer that represents how many ounces of coffee used
      * @param nSugarPackets: number of Sugar Packets in the coffee sold
      * @param nCreams: amount of creams used in the coffee sold
@@ -42,10 +48,15 @@ class Cafe extends Building  {
         this.nCreams -= nCreams;
         this.nCups -= 1;
         if (this.nCoffeeOunces < 0 || this.nSugarPackets < 0 || this.nCreams < 0 || this.nCups < 0) {
-            throw new RuntimeException("It runs out of storage.");
-        }
+            restock(size, nSugarPackets, nCreams, 1);
+            this.nCoffeeOunces -= size;
+            this.nSugarPackets -= nSugarPackets;
+            this.nCreams -= nCreams;
+            this.nCups -= 1;
+            }
     }
-    /*refill the stock of coffee, sugar, cream and cups
+    /**
+    *refill the stock of coffee, sugar, cream and cups
      * @param nCoffeeOunces: amount of coffee restocked
      * @param nSugarPackets: amount of sugar packets restocked
      * @param nCreams: amount of cream restoked
@@ -59,10 +70,8 @@ class Cafe extends Building  {
     }
     
     public static void main(String[] args) {
-        Cafe idontlikecoffeatall = new Cafe(5,4,3,2,"eifheuw","ehfow9u",1);
-        idontlikecoffeatall.sellCoffee(1,1,1);
-        idontlikecoffeatall.restock(1,2,3,4);    
-
+        Cafe idontlikecoffeatall = new Cafe(10,40,30,0,"eifheuw","ehfow9u",1);
+        idontlikecoffeatall.sellCoffee(100,100,100);
     }
     
 }

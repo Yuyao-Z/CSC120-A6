@@ -1,3 +1,9 @@
+/**
+File: House.java
+Author: Yuyao Zhu
+Date: 2024-3-13
+Description: Construct the class House extends from class Building*/
+
 /* This is a stub for the House class */
 import java.util.ArrayList;
 public class House extends Building {
@@ -10,19 +16,19 @@ public class House extends Building {
     this.hasDiningRoom = hasDiningRoom;
     System.out.println("You have built a house: 🏠");
 }
-/*Return whether the house has dining room
+/**Return whether the house has dining room
  * @return whther the house has dining room
  */
   public boolean hasDiningRoom(){
     return hasDiningRoom;
   }
-  /*return the number of residents in a house
+  /**return the number of residents in a house
    * @return the number of objects in the list of residents
    */
   public int nResident(String person) {
     return residents.size();
 }
-/*add a resident to the house
+/**add a resident to the house
  * @param name of the resident
  */
   public void moveIn(String name){
@@ -31,7 +37,7 @@ public class House extends Building {
     }
     residents.add(name);
   }
-  /* Remove a student from the house
+  /** Remove a student from the house
    * @param<string> name of the student 
    * @return the name of the student removed
    */
@@ -42,7 +48,7 @@ public class House extends Building {
     }
     throw new RuntimeException("Sorry, this student is not in this house");
   }
-/*Check whther a student is a resident in this house by checking whether their names are in the list of residents
+/**Check whther a student is a resident in this house by checking whether their names are in the list of residents
  * @param name of student
  * @return whether the student is in this house
  */
